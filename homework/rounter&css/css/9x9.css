@@ -1,0 +1,17 @@
+
+table {
+        width: 60%; 
+        border: 1px solid brown;
+        border-collapse: collapse;padding: 15px;
+        text-align: center;margin-left:auto; 
+        margin-right:auto;
+    }
+    th {
+        text-align:center;
+         background-color: burlywood;
+         padding: 15px;
+        }
+    td{border: 1px solid brown;
+        padding: 15px;
+        }
+    h1{text-align: center;color:orange;}
