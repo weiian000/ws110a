@@ -14,6 +14,7 @@ router.get('/', list)//列出所有貼文
   .get('/post/:id', show)//顯示的畫面
   .post('/post', create);//
 //.post是指method '/post'是指路徑
+
 const app = new Application();
 app.use(router.routes());
 app.use(router.allowedMethods());
