@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="calendar.css">
+</head>
+
+<body>
+    <div class="calendar">
+        <div class="title">
+          <h1 class="green" id="yearmonth"></h1>
+          
+          <a class="pre" href="" id="prev">&#10094;</a>
+          <a class="next" href="" id="next">&#10095;</a>
+          <div class="list" id="list"></div>
+        </div>     
+    </div>
+    <div class="list" id="list"></div>
+   
+    
+
+    <script>
+        //資料
+        let state = null;
+        //初始化
+        function init() {
+            state = {
+            current: new Date()//當前時間
+            }
+            render();
+        }
+        //根據資料產生畫面
+        function render() {
+            let year = document.querySelector("#yearmonth")
+            year.textContent = state.current.getFullYear()+ "-" +(state.current.getMonth()+1)
+            let list = document.querySelector("#list")
+            
+            //取得月第一天
+            let firstDate = new Date(state.current.getFullYear(), state.current.getMonth(), 1);
+            //往前算到星期日
+            let date = new Date(firstDate.getFullYear(), firstDate.getMonth(), 1);
+            date.setDate(date.getDate() - date.getDay)
+            //畫出上個月的後幾天 
+            
+            //畫出一天的格子
+            while (date.getMonth() === state.current.getMonth()) {
+            renderDate(date, list)
+            //加一天
+            date.setDate(date.getDate() + 1)
+            }
+        }
+        function renderDate(date, list) {
+            let cell = document.createElement("div")
+            cell.className = "date"
+            cell.textContent = date.getDate()
+            list.appendChild(cell)//
+        }
+      //controller
+      init();
+    </script>
+
+
+
+
+</body>
+
+</html>
