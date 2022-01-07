@@ -7,12 +7,7 @@ const db = new DB("blog.db");
 db.query("CREATE TABLE IF NOT EXISTS posts (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, title TEXT, body TEXT)");
 
 db.query("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT, email TEXT)");
-/*
-const userMap = {
-  ccc: { username:'ccc', password: '123' },
-  snoopy: { username:'snoopy', password: '321' }
-}
-*/
+
 const session = new Session()
 const router = new Router();
 
