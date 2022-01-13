@@ -9,40 +9,49 @@ export function layout1(title,content){
         <link rel="stylesheet" href="calendar.css">
         <title>${title}</title>
         <style>
+       
+        .title h1{
+          font-size:35px;
+          text-align: center;
+          background-color:#FFFFF0;
+      }
         .calendar{
             position: relative;
             line-height: 10px;
             text-align: center;
             width: 650px;
             height:400px;
-            background:#fff;
-            box-shadow:0px 1px 1px rgba(0,0,0,0.1);
+           
+            
         }
-        .title{
-            text-align: center;
-        }
-        
         .pre{
+           background-color:#FFFFF0;
             position:absolute;
             left: 35%;
-            top: 140px;
+            top: 110px;
+           
             
         }
         
         .yearmonth{
             text-align: center;
             position: relative;
-            top: 120px;
-            font-size: 20px
+            top: 25px;
+            left:0px;
+            font-size: 30px
+            
         }
         
         .next{
             position:absolute;
             right: 35%;
-            top: 140px;
+            top: 110px;
+            background-color:#FFFFF0;
         }
         .body{
             margin:0px auto;
+            background-color:#FFFFF0;
+
         }
         .body-list ul{
             width:700px;
@@ -63,7 +72,7 @@ export function layout1(title,content){
             float:center;
             text-align:center;
             position: relative;
-            top: 160px;
+            top: 70px;
             right: 15px;
         }
         .lightgrey{
@@ -88,20 +97,31 @@ export function layout1(title,content){
             position:relative;
             top: 60px;
             margin:0px auto;
+           
+
         }
         .list .date{
             width: 100px;height: 50px;
+            text-decoration:none;
             text-align: center;
             margin:0px auto;
             position:relative;
-            top: 130px;
+            top: 60px;
         }
         .list .fadeout{
             opacity: 0.3;
+            text-decoration:none;
+        }
+        #content{
+          
+
+        }
+        .body{
+          background-color:#FFFFF0;
         }
         </style>
     </head>
-    <body>
+    <body class = "body">
     <section id="content">
     ${content}
     </section>
@@ -119,6 +139,8 @@ export function layout(title, content) {
         body {
           padding: 80px;
           font: 16px Helvetica, Arial;
+          margin:0 auto;
+          background:#FFFACD;
         }
     
         h1 {
@@ -150,8 +172,8 @@ export function layout(title, content) {
           width: 500px;
           height: 300px;
         }
-    
-        input[type=text],input[type=password],
+       
+        input[type=text],input[type=password],input[type=email],
         textarea {
           border: 1px solid #eee;
           border-top-color: #ddd;
@@ -159,9 +181,18 @@ export function layout(title, content) {
           border-radius: 2px;
           padding: 15px;
           font-size: .8em;
+          
         }
-    
-        input[type=text],input[type=password] {
+        input[type=submit]
+        {
+          width:60px;height:30px;
+        }
+        .center{
+          margin:0 auto;
+          width:600px;
+          
+        }
+        input[type=text],input[type=password],input[type=email] {
           width: 500px;
         }
       </style>
@@ -179,7 +210,7 @@ export function layout(title, content) {
 export function calendar(){
     let content = `
         <div class="title">
-            
+            <h1>Create event</h1>
             <h3 id="yearmonth" class = 'yearmonth'></h3>
             <button onclick="premonth();" class="pre">&#10094;</button>
             <button onclick="nextmonth();" class='next'>&#10095;</button>
@@ -269,7 +300,7 @@ export function list(posts,user){
         <li>
         <h2>${ post.title } -- by ${post.username}</h2>
         <p><a href="/post/${post.id}">Read post</a></p>
-        <p><a href="/list"> </a>delete post</p>
+        
         </li>
         `
         )
@@ -287,6 +318,7 @@ export function list(posts,user){
 
 export function loginUi(){
     let content = `
+    <div class = "center">
     <h1>Login</h1>
     <form action = "/" method = "post">
     <p><input type="text" placeholder="username" name="username"></p>
@@ -295,18 +327,21 @@ export function loginUi(){
     <p><input type="submit" value="Login"></p>
 
     <p>New user? <a href="/signup">Create an account</p>
+    </div>
     </form>
     `
     return layout('Login',content)
 }
 export function signupUi(){
     let content = `
+    <div class = "center">
     <h1>Signup</h1>
     <form action = "/signup" method = "post">
     <p><input type="text" placeholder="username" name="username"></p>
     <p><input type="password" placeholder="password" name="password"></p>
     <p><input type="email" placeholder="email" name="email"></p>
     <p><input type="submit" value="signup"></p>
+    </div>
     </form>
     `
     return layout('Signup',content)
@@ -314,15 +349,19 @@ export function signupUi(){
 
 export function success() {
     return layout('Success', `
+    <div class = "center">
     <h1>Success!</h1>
     You can <a href="/">login now !</a> 
+    </div>
     `)
   }
   
   export function fail() {
     return layout('Fail', `
+    <div class = "center">
     <h1>Fail!</h1>
     Your username had been use by other people . Please <a href="JavaScript:window.history.back()">Signup again</a> !
+    </div>
     `)
   }
 
@@ -339,7 +378,9 @@ export function newPost(){
 }
 export function show(post){
     return layout(post.title, `
+    <div class = "center">
     <h1>${post.title} -- by ${post.username}</h1>
     <p>${post.body}</p>
+    </div>
   `)
 }

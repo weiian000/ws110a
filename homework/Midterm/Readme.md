@@ -1,4 +1,4 @@
-# 網站設計學習筆記
+# 網站設計學習筆記(非原創結尾說明)
 
 ## Oak框架
 
@@ -221,3 +221,18 @@ FROM people 從People表格裡  把id name挑出來
 ``db.close()``
 
 關掉可以確保快取正確寫入比較安全
+
+
+* 圖片來源:
+
+https://ianchen0119.gitbook.io/deno/shi-yong-deno-da-zao-web-api/oak-kuang-jia-jie-shao
+
+* 參考資料
+
+老師上課的範例程式
+
+https://ianchen0119.gitbook.io/deno/shi-yong-deno-da-zao-web-api/oak-kuang-jia-jie-shao
+
+https://github.com/oakserver/oak
+
+https://blog.poychang.net/build-deno-web-app-with-oak/

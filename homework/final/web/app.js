@@ -88,6 +88,7 @@ async function signup(ctx) {
 }
 
 async function loginUi(ctx) {
+
   ctx.response.body = await render.loginUi();
 }
 
